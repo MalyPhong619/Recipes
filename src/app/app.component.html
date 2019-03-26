@@ -1,10 +1,12 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div *ngFor="let newRecipe of recipes">
-  <h1 (click)="showIngredients()">{{newRecipe.title}}</h1>
-  <ul id="ingredients">
-    <li *ngFor="let ingredient of newRecipe.ingredients">{{ingredient}}</li>
-  </ul>
-  <ol>
-    <li *ngFor="let direction of newRecipe.directions">{{direction}}</li>
-  </ol>
+  <h1 (click)="newRecipe.show = !newRecipe.show">{{newRecipe.title}}</h1>
+  <div *ngIf="newRecipe.show">
+    <ul id="ingredients">
+      <li *ngFor="let ingredient of newRecipe.ingredients">{{ingredient}}</li>
+    </ul>
+    <ol>
+      <li *ngFor="let direction of newRecipe.directions">{{direction}}</li>
+    </ol>
+  </div>
 </div>
